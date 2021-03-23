@@ -6,10 +6,14 @@ douglasmg7@lyptus:~/code/flask-by-example$ heroku create dmg-wordcount-stage
 Creating ⬢ dmg-wordcount-stage... done
 https://dmg-wordcount-stage.herokuapp.com/ | https://git.heroku.com/dmg-wordcount-stage.git
 
-git remote add pro git@heroku.com:dmg-wordcount-pro.git
 
-https://git.heroku.com/dmg-wordcount-stage.git
-git remote add stage git@heroku.com:dmg-wordcount-stage.git
+git remote add pro https://git.heroku.com/dmg-wordcount-pro.git
+git remote add stage https://git.heroku.com/dmg-wordcount-stage.git
 
 For staging: git push stage main
 For production: git push pro main
+
+# Not work
+git remote add pro git@heroku.com:dmg-wordcount-pro.git
+git remote add stage git@heroku.com:dmg-wordcount-stage.git
+

@@ -17,3 +17,7 @@ For production: git push pro main
 git remote add pro git@heroku.com:dmg-wordcount-pro.git
 git remote add stage git@heroku.com:dmg-wordcount-stage.git
 
+# Set env vars
+heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
+heroku config:set APP_SETTINGS=config.ProductionConfig --remote pro
+

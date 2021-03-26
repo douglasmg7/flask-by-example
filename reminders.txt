@@ -21,3 +21,6 @@ git remote add stage git@heroku.com:dmg-wordcount-stage.git
 heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
 heroku config:set APP_SETTINGS=config.ProductionConfig --remote pro
 
+heroku run python app.py --app dmg-wordcount-stage
+heroku run python app.py --app dmg-wordcount-pro
+

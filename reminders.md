@@ -77,3 +77,8 @@ heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-stage
 ``` bash
 heroku addons:docs heroku-postgresql
 ```
+
+## Run migrations on stage
+``` bash
+heroku run python manage.py db upgrade --app dmg-wordcount-stage
+```

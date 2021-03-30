@@ -64,14 +64,16 @@ cd ~/code/flask-by-example
 python manage.py db upgrade
 ```
 
-## Check if we have a database set up no the staging server:
+## Check if we have a database set up no the staging and production server:
 ``` bash
-heroku config --app wordcount-stage
+heroku config --app dmg-wordcount-stage
+heroku config --app dmg-wordcount-pro
 ```
 
-## Add the postgres addon to the staging server:
+## Add the postgres addon to the staging and production server:
 ``` bash
 heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-stage
+heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-pro
 ```
 ### To view documentation
 ``` bash
@@ -82,3 +84,4 @@ heroku addons:docs heroku-postgresql
 ``` bash
 heroku run python manage.py db upgrade --app dmg-wordcount-stage
 ```
+Notice how we only ran the upgrade, not the init or migrate commands like before. We already have our migration file set up and ready to go; we just need to apply it against the Heroku database

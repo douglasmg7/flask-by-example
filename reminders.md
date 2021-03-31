@@ -46,31 +46,31 @@ heroku run python app.py --app dmg-wordcount-stage
 heroku run python app.py --app dmg-wordcount-pro
 ```
 
-## Initialize Alembic:
+## Initialize Alembic
 ``` bash
 cd ~/code/flask-by-example
 python manage.py db init
 ```
 
-## Create first migration:
+## Create first migration
 ``` bash
 cd ~/code/flask-by-example
 python manage.py db migrate
 ```
 
-## Apply the upgrades to the database:
+## Apply the upgrades to the database
 ``` bash
 cd ~/code/flask-by-example
 python manage.py db upgrade
 ```
 
-## Check if we have a database set up no the staging and production server:
+## Check if we have a database set up no the staging and production server
 ``` bash
 heroku config --app dmg-wordcount-stage
 heroku config --app dmg-wordcount-pro
 ```
 
-## Add the postgres addon to the staging and production server:
+## Add the postgres addon to the staging and production server
 ``` bash
 heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-stage
 heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-pro
@@ -80,8 +80,14 @@ heroku addons:create heroku-postgresql:hobby-dev --app dmg-wordcount-pro
 heroku addons:docs heroku-postgresql
 ```
 
-## Run migrations on stage
+## Run migrations on stage and production server
 ``` bash
 heroku run python manage.py db upgrade --app dmg-wordcount-stage
+heroku run python manage.py db upgrade --app dmg-wordcount-pro
 ```
 Notice how we only ran the upgrade, not the init or migrate commands like before. We already have our migration file set up and ready to go; we just need to apply it against the Heroku database
+
+## To run app
+``` bash
+python manage.py runserver
+```

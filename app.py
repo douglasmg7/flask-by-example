@@ -26,13 +26,12 @@ def index():
         try:
             url = request.form['url']
             r = requests.get(url)
-            print(r.text)
+            #  print(r.text)
         except:
-            erros.append(
-                    "Unable to get URL. Please make sure it's valid and try again."
-                    )
+            erros.append("Unable to get URL. Please make sure it's valid and try again.")
         if r:
             # text processing
+            # get only text, no html tags
             raw = BeautifulSoup(r.text, 'html.parser').get_text()
             nltk.data.path.append('./nltk_data/')  # set the path
             tokens = nltk.word_tokenize(raw)
@@ -44,7 +43,7 @@ def index():
             # stop words
             no_stop_words = [w for w in raw_words if w.lower() not in stops]
             no_stop_words_count = Counter(no_stop_words)
-            # save the results
+            # sorted by second item of tuple Counter
             results = sorted(
                 no_stop_words_count.items(),
                 key=operator.itemgetter(1),

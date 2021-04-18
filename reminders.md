@@ -91,3 +91,8 @@ Notice how we only ran the upgrade, not the init or migrate commands like before
 ``` bash
 python manage.py runserver
 ```
+
+## Download nltk modules
+``` bash
+python -m nltk.downloader
+```
